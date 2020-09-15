@@ -10,4 +10,4 @@ A simple looping HTTP request intended for use from a Raspberry Pi.
 
 ## Notes
  - The greater of 5 seconds or `Frequency` is used as a timeout value for requests.
- - A best effort is made to perform a request according to the frequency specified. Slight drift isn't out of the question, however. 
+ - A best effort is made to perform a request according to the frequency specified. Slight drift is to be expected.
