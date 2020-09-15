@@ -4,7 +4,10 @@ from azure.storage.file import FileService
 
 def main(files):
 
-    if not os.path.isfile('upload.config'):
+    configfile = (os.path.dirname(os.path.abspath(__file__)) + '/upload.config')
+    print (configfile)
+
+    if not os.path.isfile(configfile):
         print("Settings not found. Please create an upload.config file with the Azure file share account name, access key, file share name, and folder. Each value should be on its own line.")
         exit()
     if len(files) <1:
@@ -12,7 +15,7 @@ def main(files):
         exit()
 
     # get settings - account, key, share, and folder in subsequent lines
-    with open('upload.config',"r") as config:
+    with open(configfile,"r") as config:
         settings = config.readlines()
         azure_account = settings[0].rstrip()
         azure_key = settings[1].rstrip()
